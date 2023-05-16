@@ -32,7 +32,7 @@ function CharacterSheetPage() {
 
         const storedToken = localStorage.getItem("authToken")
     
-        axios.get(`https://changelingbackend.fly.dev/user/find/${userId}`,
+        axios.get(`${import.meta.env.VITE_API_URL}/user/find/${userId}`,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {
@@ -44,7 +44,7 @@ function CharacterSheetPage() {
         
         const storedToken = localStorage.getItem("authToken")
     
-        axios.get(`https://changelingbackend.fly.dev/character/find/${characterId}`,
+        axios.get(`${import.meta.env.VITE_API_URL}/character/find/${characterId}`,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {
@@ -57,7 +57,7 @@ function CharacterSheetPage() {
         if(character != null){
         const storedToken = localStorage.getItem("authToken")
     
-        axios.get(`https://changelingbackend.fly.dev/api/backstories/${character.backstory[0]}`,
+        axios.get(`${import.meta.env.VITE_API_URL}/api/backstories/${character.backstory[0]}`,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {

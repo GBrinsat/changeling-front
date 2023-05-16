@@ -49,7 +49,7 @@ function Class(props) {
         const storedToken = localStorage.getItem("authToken")
         const body = {class :playerclass}
 
-        axios.put(`https://changelingbackend.fly.dev/character/update/${props.id}`, body,
+        axios.put(`${import.meta.env.VITE_API_URL}/character/update/${props.id}`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {

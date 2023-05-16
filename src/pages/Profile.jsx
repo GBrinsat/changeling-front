@@ -21,7 +21,7 @@ function Profile() {
 
         const storedToken = localStorage.getItem("authToken")
     
-        axios.get(`https://changelingbackend.fly.dev/user/find/${userId}`,
+        axios.get(`${import.meta.env.VITE_API_URL}/user/find/${userId}`,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {
@@ -41,7 +41,7 @@ function Profile() {
         const storedToken = localStorage.getItem("authToken")
         const body = {user: user._id}
 
-        axios.post(`https://changelingbackend.fly.dev/character/create`, body,
+        axios.post(`${import.meta.env.VITE_API_URL}/character/create`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {

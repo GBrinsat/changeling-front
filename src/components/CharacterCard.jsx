@@ -10,7 +10,7 @@ function CharacterCard(props) {
         const storedToken = localStorage.getItem("authToken")
         const body = {id : id, backstoryId: props.data.backstory[0], userId: props.userId}
 
-        axios.post(`https://changelingbackend.fly.dev/character/delete`, body,
+        axios.post(`${import.meta.env.VITE_API_URL}/character/delete`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(() => {

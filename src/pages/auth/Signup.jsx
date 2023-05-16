@@ -5,9 +5,6 @@ import axios from "axios";
 
 import Navbar from "../../components/Navbar";
 
-const API_URL = "https://changelingbackend.fly.dev"
-
-
 function SignupPage(props) {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -25,7 +22,7 @@ function SignupPage(props) {
     const requestBody = {name, password}
     console.log(requestBody)
 
-    axios.post(`${API_URL}/auth/signup`, requestBody)
+    axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
         .then(() => {
             navigate('/login')
         })

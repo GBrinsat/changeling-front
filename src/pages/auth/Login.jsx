@@ -7,8 +7,8 @@ import { AuthContext } from "../../context/auth.context";
 
 import Navbar from "../../components/Navbar";
 
-const API_URL = "https://changelingbackend.fly.dev";
-
+//const API_URL = "https://changelingbackend.fly.dev"; 
+/* const API_URL = "http://localhost:8080";  */
 
 function LoginPage() {
   const [name, setName] = useState("");
@@ -27,7 +27,7 @@ function LoginPage() {
 
     const requestBody= {name, password}
 
-    axios.post(`${API_URL}/auth/login`, requestBody)
+    axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, requestBody, {headers: {"Content-Type": "application/json"}})
         .then(response => {
             storeToken(response.data.authToken)
             authenticateUser()

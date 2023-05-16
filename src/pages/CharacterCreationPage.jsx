@@ -47,7 +47,7 @@ function CharacterCreationPage() {
 
         const storedToken = localStorage.getItem("authToken")
     
-        axios.get(`https://changelingbackend.fly.dev/user/find/${userId}`,
+        axios.get(`${import.meta.env.VITE_API_URL}/user/find/${userId}`,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {

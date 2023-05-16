@@ -30,7 +30,7 @@ function BackstoryGenerate() {
 
         const storedToken = localStorage.getItem("authToken")
     
-        axios.get(`https://changelingbackend.fly.dev/user/find/${userId}`,
+        axios.get(`${import.meta.env.VITE_API_URL}/user/find/${userId}`,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {
@@ -51,7 +51,7 @@ function BackstoryGenerate() {
         const storedToken = localStorage.getItem("authToken")
         const body = {text: backstoryUpdate, option1, option2, option3}
 
-        axios.put(`https://changelingbackend.fly.dev/api/backstories/${backstoryId}`, body,
+        axios.put(`${import.meta.env.VITE_API_URL}/api/backstories/${backstoryId}`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(() => {
@@ -71,7 +71,7 @@ function BackstoryGenerate() {
         const characterId = userData.character[userData.character.length-1]._id
         const storedToken = localStorage.getItem("authToken")
 
-        axios.get("https://changelingbackend.fly.dev/api/backstories/generate",
+        axios.get(`${import.meta.env.VITE_API_URL}/api/backstories/generate`,
             { headers: {    Authorization: `Bearer ${storedToken}`,
                             id: backstoryId,
                             character: characterId }})
@@ -91,7 +91,7 @@ function BackstoryGenerate() {
         const storedToken = localStorage.getItem("authToken")
         const body = {text: backstoryUpdate, option1, option2, option3}
 
-        axios.put(`https://changelingbackend.fly.dev/api/backstories/${id}`, body,
+        axios.put(`${import.meta.env.VITE_API_URL}/api/backstories/${id}`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
     }
@@ -109,7 +109,7 @@ function BackstoryGenerate() {
         const body = {option1, option2, option3, character: characterId}
 
         if(!userData.character[userData.character.length-1].backstory[0]) {
-            axios.post(`https://changelingbackend.fly.dev/api/backstories/create`, body,
+            axios.post(`${import.meta.env.VITE_API_URL}/api/backstories/create`, body,
             { headers: { Authorization: `Bearer ${storedToken}`}}
             )
             .then(response => {
