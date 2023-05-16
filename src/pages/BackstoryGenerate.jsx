@@ -52,7 +52,8 @@ function BackstoryGenerate() {
         const body = {text: backstoryUpdate, option1, option2, option3}
 
         axios.put(`${import.meta.env.VITE_API_URL}/api/backstories/${backstoryId}`, body,
-        { headers: { Authorization: `Bearer ${storedToken}`}}
+        { headers: { Authorization: `Bearer ${storedToken}`,
+                    "Content-Type": "application/json"}}
         )
             .then(() => {
                 navigate("/profile")
@@ -74,7 +75,8 @@ function BackstoryGenerate() {
         axios.get(`${import.meta.env.VITE_API_URL}/api/backstories/generate`,
             { headers: {    Authorization: `Bearer ${storedToken}`,
                             id: backstoryId,
-                            character: characterId }})
+                            character: characterId,
+                            "Content-Type": "application/json" }})
                 .then(response => {
                     setBackstory(response.data.message.content)
                     setShowSpinner(false)
@@ -92,7 +94,8 @@ function BackstoryGenerate() {
         const body = {text: backstoryUpdate, option1, option2, option3}
 
         axios.put(`${import.meta.env.VITE_API_URL}/api/backstories/${id}`, body,
-        { headers: { Authorization: `Bearer ${storedToken}`}}
+        { headers: { Authorization: `Bearer ${storedToken}`,
+                    "Content-Type": "application/json"}}
         )
     }
 
@@ -110,7 +113,8 @@ function BackstoryGenerate() {
 
         if(!userData.character[userData.character.length-1].backstory[0]) {
             axios.post(`${import.meta.env.VITE_API_URL}/api/backstories/create`, body,
-            { headers: { Authorization: `Bearer ${storedToken}`}}
+            { headers: { Authorization: `Bearer ${storedToken}`,
+                        "Content-Type": "application/json"}}
             )
             .then(response => {
                 createdBackstory = response
