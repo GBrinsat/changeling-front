@@ -48,7 +48,7 @@ function BackgroundAlignment(props) {
         const storedToken = localStorage.getItem("authToken")
         const body = {background, alignment, backstory: []}
 
-        axios.put(`http://localhost:5005/character/update/${props.id}`, body,
+        axios.put(`https://changelingbackend.fly.dev/character/update/${props.id}`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {

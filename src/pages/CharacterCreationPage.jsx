@@ -47,7 +47,7 @@ function CharacterCreationPage() {
 
         const storedToken = localStorage.getItem("authToken")
     
-        axios.get(`http://localhost:5005/user/find/${userId}`,
+        axios.get(`https://changelingbackend.fly.dev/user/find/${userId}`,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {

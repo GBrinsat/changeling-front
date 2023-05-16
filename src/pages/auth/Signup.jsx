@@ -5,7 +5,7 @@ import axios from "axios";
 
 import Navbar from "../../components/Navbar";
 
-const API_URL = "http://localhost:5005"
+const API_URL = "https://changelingbackend.fly.dev"
 
 
 function SignupPage(props) {

@@ -213,7 +213,7 @@ function Stats(props) {
         const storedToken = localStorage.getItem("authToken")
         const body = {stats: {str, strmod, dex, dexmod, con, conmod, int, intmod, wis, wismod, cha, chamod}}
 
-        axios.put(`http://localhost:5005/character/update/${props.id}`, body,
+        axios.put(`https://changelingbackend.fly.dev/character/update/${props.id}`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {
