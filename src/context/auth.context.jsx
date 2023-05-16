@@ -21,7 +21,8 @@ function AuthProviderWrapper(props) {
     if (storedToken) {
       axios.get(
         `${import.meta.env.VITE_API_URL}/auth/verify`, 
-        { headers: { Authorization: `Bearer ${storedToken}`} }
+        { headers: { Authorization: `Bearer ${storedToken}`,
+        }}
       )
       .then((response) => { 
         const user = response.data; 

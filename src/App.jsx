@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage'
 import Profile from './pages/Profile'
 import CharacterCreationPage from './pages/CharacterCreationPage'
 import CharacterSheetPage from './pages/CharacterSheetPage'
+import CharacterSheetEdit from './pages/CharacterSheetEdit'
 
 //components
 import IsPrivate from './components/IsPrivate'
@@ -26,6 +27,7 @@ function App() {
       <Route path="/profile" element={<IsPrivate><Profile /></IsPrivate>} />
       <Route path="/characterCreation" element={<IsPrivate><CharacterCreationPage /></IsPrivate>} />
       <Route path="/characterSheet/:characterId" element={<IsPrivate><CharacterSheetPage /></IsPrivate>} />
+      <Route path="/characterSheet/edit" element={<IsPrivate><CharacterSheetEdit /></IsPrivate>} />
       <Route path="/backstory" element = {<IsPrivate><BackstoryGenerate /></IsPrivate>} />
     </Routes> 
 

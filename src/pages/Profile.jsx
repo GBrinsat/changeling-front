@@ -56,10 +56,11 @@ function Profile() {
 
             <div className="character-topbox"></div>
 
-            {userData && userData.character.map((character) => {
+            {userData && userData.character.map(singleCharacter => {
+                {console.log(userData)}
                 return(
                     <>
-                    <CharacterCard key={character._id} data={character} getUser={getUser} userId={user._id}/>
+                    <CharacterCard key={singleCharacter._id} id={singleCharacter._id} getUser={getUser} userId={user._id}/>
                     </>
                 )
                 

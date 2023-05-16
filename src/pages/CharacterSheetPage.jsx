@@ -29,6 +29,7 @@ function CharacterSheetPage() {
 
     function getUser() {
         const userId = user._id
+        console.log(userId)
 
         const storedToken = localStorage.getItem("authToken")
     
@@ -37,12 +38,14 @@ function CharacterSheetPage() {
         )
             .then(response => {
                 setUserData(response.data.user)
+                console.log(response)
             })
     }
 
     function getCharacter() {
         
         const storedToken = localStorage.getItem("authToken")
+        console.log(characterId)
     
         axios.get(`${import.meta.env.VITE_API_URL}/character/find/${characterId}`,
         { headers: { Authorization: `Bearer ${storedToken}`}}
@@ -54,7 +57,7 @@ function CharacterSheetPage() {
 
     function getBackstory() {
 
-        if(character != null){
+        if(character !== null){
         const storedToken = localStorage.getItem("authToken")
     
         axios.get(`${import.meta.env.VITE_API_URL}/api/backstories/${character.backstory[0]}`,
@@ -68,11 +71,18 @@ function CharacterSheetPage() {
 
     useEffect(() => {
         getUser()
-        getCharacter()
     },[])
 
     useEffect(() => {
-        getBackstory()
+        if(userData !== null){
+            getCharacter()
+        }
+    },[userData])
+
+    useEffect(() => {
+        if(character !== null){
+            getBackstory()
+        }
     },[character])
 
     function changeComponents0() {

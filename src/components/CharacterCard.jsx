@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 function CharacterCard(props) {
 
-    const [id, setId] = useState(props.data._id)
+    /* const [id, setId] = useState(props.data._id) */
 
-    function deleteCharacter() {
+    /* function deleteCharacter() {
         const storedToken = localStorage.getItem("authToken")
-        const body = {id : id, backstoryId: props.data.backstory[0], userId: props.userId}
+        const body = {id : props.data._id, backstoryId: props.data.backstory[0], userId: props.userId}
 
         axios.post(`${import.meta.env.VITE_API_URL}/character/delete`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}
@@ -16,21 +16,17 @@ function CharacterCard(props) {
             .then(() => {
                 props.getUser()
             })
-    }
+    } */
 
 
     return(
         <>  
-            <a href=""></a>
             <div className="character-card">
-                <Link className="character-flex" to={`/characterSheet/${props.data._id}`}>
-                    <p className="character-name">{props.data.name}</p>
-                    <p className="character-class">{props.data.class.slice(0,1).toUpperCase()+props.data.class.slice(1)}</p>
+                <Link className="character-flex" to={`/characterSheet/${props.id}`}>
+                    <p>clickme</p>
+                    {/* <p className="character-name">{props.data.name}</p>
+                    <p className="character-class">{props.data.class.slice(0,1).toUpperCase()+props.data.class.slice(1)}</p> */}
                 </Link>
-                {/* <a className="character-flex" href="/characterSheet/">
-                    <p className="character-name">{props.data.name}</p>
-                    <p className="character-class">{props.data.class.slice(0,1).toUpperCase()+props.data.class.slice(1)}</p>
-                </a> */}
                 <button className="character-delete" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"> X </button>
 
                 <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,7 +40,7 @@ function CharacterCard(props) {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn modal-close" data-bs-dismiss="modal">No</button>
-                            <button onClick={deleteCharacter} type="button" className="btn delete-character" data-bs-dismiss="modal">Yes</button>
+                            <button /* onClick={deleteCharacter} */ type="button" className="btn delete-character" data-bs-dismiss="modal">Yes</button>
                         </div>
                         </div>
                     </div>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function SheetMain(props) {
 
     function toUppercase(string) {
@@ -36,6 +38,9 @@ function SheetMain(props) {
                     <p>25 feet</p>
                 </div>
             </div>
+
+            <Link className="link" to={"/characterSheet/edit"}>Edit</Link>
+            
         </div>
        
         </>

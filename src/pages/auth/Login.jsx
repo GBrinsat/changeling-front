@@ -7,9 +7,6 @@ import { AuthContext } from "../../context/auth.context";
 
 import Navbar from "../../components/Navbar";
 
-//const API_URL = "https://changelingbackend.fly.dev"; 
-/* const API_URL = "http://localhost:8080";  */
-
 function LoginPage() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -76,9 +73,7 @@ function LoginPage() {
 
       <p>Are you new here?</p>
 
-      <button className="button">
-      <Link className="link" to={"/signup"}> Sign Up</Link>
-      </button>
+      <Link className="link" to={"/signup"}>Sign Up</Link>
       </div>
     </div>
   )

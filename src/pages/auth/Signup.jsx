@@ -34,38 +34,82 @@ function SignupPage(props) {
 
   
   return (
-    <div className="SignupPage">
+    <div className="LoginPage">
+
+    <Navbar className="navbar"/>
+
+    <div className="topbox"></div>
+    <div className="d-flex flex-column align-items-center">
+    <h1>Sign Up</h1>
+
+    <form className="" onSubmit={handleSignupSubmit}>
+
+      <div className="col-9">
+      <input
+        type="text"
+        name="name"
+        value={name}
+        onChange={handleName}
+        placeholder="Username"
+      />
+      </div>
+
+      <div className="col-9">
+      <input
+        type="password"
+        name="password"
+        value={password}
+        onChange={handlePassword}
+        placeholder="******"
+      />
+      </div>
+
+      <button className="col-9 button login-button" type="submit">Sign up</button>
+    </form>
+    { errorMessage && <p className="error-message">{errorMessage}</p> }
+
+    <p>Are you new here?</p>
+
+    <Link className="link" to={"/login"}>Login</Link>
+    </div>
+  </div>
+
+
+    /* <div className="SignupPage">
 
       <Navbar />
 
+      <div className="topbox"></div>
+      <div className="signup-container">
       <h1>Sign Up</h1>
 
-      <form onSubmit={handleSignupSubmit}>
+      <form className="signup-form" onSubmit={handleSignupSubmit}>
     
-      <label>Username:</label>
         <input 
           type="text"
           name="name"
           value={name}
           onChange={handleName}
+          placeholder="Username"
         />
 
-        <label>Password:</label>
         <input 
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
+          placeholder="******"
         />
       
-        <button type="submit">Sign Up</button>
+        <button className="button" type="submit">Sign Up</button>
       </form>
 
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
       <p>Already have account?</p>
       <Link to={"/login"}> Login</Link>
-    </div>
+      </div>
+    </div> */
   )
 }
 

@@ -27,13 +27,13 @@ function Navbar() {
         {isLoggedIn && (
           <>
            <button className="nav-link nav-button" onClick={logOutUser}>Logout</button>
-           <Link to="/profile" className="link"> <button className="nav-link nav-button">Profile</button> </Link>
+           <Link to="/profile" className="navlink"> <button className="nav-link nav-button">Profile</button> </Link>
           </>
         )}
         {!isLoggedIn && (
            <>
-            <Link to="/signup" className="link"> <button className="nav-link nav-button">Sign Up</button> </Link>
-            <Link to="/login" className="link"> <button className="nav-link nav-button">Login</button> </Link>
+            <Link to="/signup" className="navlink"> <button className="nav-link nav-button">Sign Up</button> </Link>
+            <Link to="/login" className="navlink"> <button className="nav-link nav-button">Login</button> </Link>
           </>
         )}
       </div>
