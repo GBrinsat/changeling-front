@@ -216,8 +216,7 @@ function Stats(props) {
         axios.put(`${import.meta.env.VITE_API_URL}/character/update/${props.id}`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
-            .then(response => {
-                console.log(response)
+            .then(()=> {
                 props.changeComponents3()
             })
     }

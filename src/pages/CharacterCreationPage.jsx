@@ -42,7 +42,6 @@ function CharacterCreationPage() {
     
     
     function getUser() {
-        console.log(user)
         const userId = user._id
 
         const storedToken = localStorage.getItem("authToken")
@@ -63,10 +62,8 @@ function CharacterCreationPage() {
         if(userData === null){
             return
         } else {
-            console.log(userData)
             const i = userData.character.length-1
                 setCharacter(userData.character[i])
-                console.log(character)
         }
         
     }, [userData])

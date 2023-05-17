@@ -44,8 +44,7 @@ function Profile() {
         axios.post(`${import.meta.env.VITE_API_URL}/character/create`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
-            .then(response => {
-                console.log(response)
+            .then(() => {
                 navigate("/characterCreation")
             })
     }
@@ -57,7 +56,7 @@ function Profile() {
             <div className="character-topbox"></div>
 
             {userData && userData.character.map(singleCharacter => {
-                {console.log(userData)}
+    
                 return(
                     <>
                     <CharacterCard key={singleCharacter._id} id={singleCharacter._id} getUser={getUser} userId={user._id}/>

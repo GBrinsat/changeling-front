@@ -28,7 +28,7 @@ function LoginPage() {
         .then(response => {
             storeToken(response.data.authToken)
             authenticateUser()
-            navigate("/profile")
+            navigate("/")
         })
         .catch((err) => {
             const errorDescription = err.response.data.message;
