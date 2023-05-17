@@ -57,7 +57,7 @@ function CharacterSheetPage() {
         if(character != null && character.backstory[0] != undefined){
         const storedToken = localStorage.getItem("authToken")
     
-        axios.get(`${import.meta.env.VITE_API_URL}/api/backstories/${character.backstory[0]}`,
+        axios.get(`${import.meta.env.VITE_API_URL}/backstory/${character.backstory[0]}`,
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(response => {
