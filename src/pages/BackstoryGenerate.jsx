@@ -75,9 +75,9 @@ function BackstoryGenerate() {
 
     function generateBackstory() {
 
-        console.log("test")
+        console.log("test generate")
 
-        /* const characterId = userData.character[userData.character.length-1]._id
+        const characterId = userData.character[userData.character.length-1]._id
         const storedToken = localStorage.getItem("authToken")
 
         axios.get(`${import.meta.env.VITE_API_URL}/api/backstories/generate`,
@@ -88,7 +88,7 @@ function BackstoryGenerate() {
                 .then(response => {
                     setBackstory(response.data.message.content)
                     setShowSpinner(false)
-                        }) */
+                        })
     }
 
     function scrubBackstory(id) {
@@ -127,7 +127,7 @@ function BackstoryGenerate() {
                         "Content-Type": "application/json"}}
             )
             .then(response => {
-                console.log(response)
+                console.log("this is the testresponse" + response)
                 createdBackstory = response
                 setBackstoryId(createdBackstory.data.backstory[0])
             })
