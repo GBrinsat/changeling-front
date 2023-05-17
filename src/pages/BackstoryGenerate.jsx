@@ -26,7 +26,9 @@ function BackstoryGenerate() {
     const navigate = useNavigate()
 
     function getUser() {
-        const userId = user._id
+
+        console.log("test3")
+       /*  const userId = user._id
 
         const storedToken = localStorage.getItem("authToken")
     
@@ -38,7 +40,7 @@ function BackstoryGenerate() {
                 if(response.data.user.character[response.data.user.character.length-1].backstory.length > 0) {
                     scrubBackstory(response.data.user.character[response.data.user.character.length-1].backstory[0])
                 }
-            })
+            }) */
     }
 
     useEffect(() => {
@@ -46,7 +48,9 @@ function BackstoryGenerate() {
     },[])
 
     useEffect(() => {
-        if(backstoryUpdate !== "" ) {
+
+        console.log("test4")
+        /* if(backstoryUpdate !== "" ) {
 
         const storedToken = localStorage.getItem("authToken")
         const body = {text: backstoryUpdate, option1, option2, option3}
@@ -58,7 +62,7 @@ function BackstoryGenerate() {
             .then(() => {
                 navigate("/profile")
             })
-        } else {return}
+        } else {return} */
     }, [backstoryUpdate])
 
     useEffect(() => {
@@ -69,7 +73,9 @@ function BackstoryGenerate() {
 
     function generateBackstory() {
 
-        const characterId = userData.character[userData.character.length-1]._id
+        console.log("test")
+
+        /* const characterId = userData.character[userData.character.length-1]._id
         const storedToken = localStorage.getItem("authToken")
 
         axios.get(`${import.meta.env.VITE_API_URL}/api/backstories/generate`,
@@ -80,12 +86,14 @@ function BackstoryGenerate() {
                 .then(response => {
                     setBackstory(response.data.message.content)
                     setShowSpinner(false)
-                        })
+                        }) */
     }
 
     function scrubBackstory(id) {
 
-        setOption1("none")
+        console.log("test5")
+
+        /* setOption1("none")
         setOption2("none")
         setOption3("none")
         setBackstory("")
@@ -96,13 +104,15 @@ function BackstoryGenerate() {
         axios.put(`${import.meta.env.VITE_API_URL}/api/backstories/${id}`, body,
         { headers: { Authorization: `Bearer ${storedToken}`,
                     "Content-Type": "application/json"}}
-        )
+        ) */
     }
 
     function handleSubmit(e) {
         e.preventDefault()
 
-        setShowText(true)
+        console.log("test1")
+
+        /* setShowText(true)
         setShowSpinner(true)
 
         const characterId = userData.character[userData.character.length-1]._id
@@ -120,7 +130,7 @@ function BackstoryGenerate() {
                 createdBackstory = response
                 setBackstoryId(createdBackstory.data.backstory[0])
             })
-        } else {setBackstoryId(userData.character[userData.character.length-1].backstory[0])}  
+        } else {setBackstoryId(userData.character[userData.character.length-1].backstory[0])}   */
     }
 
     function handleChange1(e) {

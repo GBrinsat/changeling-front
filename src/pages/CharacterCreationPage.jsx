@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar"
 import RaceNameGender from "../components/CharacterCreation/RaceNameGender"
 import Class from "../components/CharacterCreation/Class"
 import Stats from "../components/CharacterCreation/Stats"
-import BackgroundAlignment from "../components/BackgroundAlignment"
+import BackgroundAlignment from "../components/CharacterCreation/BackgroundAlignment"
 
 //context
 import { useContext } from "react"
