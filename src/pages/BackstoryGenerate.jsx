@@ -50,8 +50,9 @@ function BackstoryGenerate() {
 
     useEffect(() => {
 
-        console.log("test4")
-        /* if(backstoryUpdate !== "" ) {
+        if(backstoryUpdate !== "" ) {
+
+            console.log("updating backstory")
 
         const storedToken = localStorage.getItem("authToken")
         const body = {text: backstoryUpdate, option1, option2, option3}
@@ -63,7 +64,7 @@ function BackstoryGenerate() {
             .then(() => {
                 navigate("/profile")
             })
-        } else {return} */
+        } else {return}
     }, [backstoryUpdate])
 
     useEffect(() => {
