@@ -120,6 +120,7 @@ function BackstoryGenerate() {
         let createdBackstory = null
 
         const storedToken = localStorage.getItem("authToken")
+        console.log(/\t\r\n/.test(storedToken))
         const body = {option1, option2, option3, character: characterId}
 
         if(!userData.character[userData.character.length-1].backstory[0]) {
