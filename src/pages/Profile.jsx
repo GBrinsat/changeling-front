@@ -39,7 +39,7 @@ function Profile() {
     function handleClick() {
 
         const storedToken = localStorage.getItem("authToken")
-        const body = {user: user._id}
+        const body = {user: user._id,}
 
         axios.post(`${import.meta.env.VITE_API_URL}/character/create`, body,
         { headers: { Authorization: `Bearer ${storedToken}`}}

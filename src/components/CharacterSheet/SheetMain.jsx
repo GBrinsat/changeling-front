@@ -19,27 +19,27 @@ function SheetMain(props) {
             <div className="sheet-box-small">
                 <div className="sheet-card">
                     <p className="sheet-heading">Armor Class</p>
-                    <p className="sheet-buffer">15</p>
+                    <p className="sheet-buffer">{props.character.armorclass}</p>
                 </div>
                 <div className="sheet-card">
                     <p className="sheet-heading">Hit Points</p>
-                    <p>Max: 10</p>
-                    <p>Current: 7</p>
+                    <p>Max: {props.character.hpmax}</p>
+                    <p>Current: {props.character.hpcurrent}</p>
                 </div>
             </div>
 
             <div className="sheet-box-small">
                 <div className="sheet-card">
                     <p className="sheet-heading">Initiative</p>
-                    <p>+2</p>
+                    <p>{props.character.initiative}</p>
                 </div>
                 <div className="sheet-card">
                     <p className="sheet-heading">Speed</p>
-                    <p>25 feet</p>
+                    <p>{props.character.speed} feet</p>
                 </div>
             </div>
 
-            <Link className="link" to={"/characterSheet/edit"}>Edit</Link>
+            <Link className="link" to={`/characterSheet/edit/${props.character._id}`}>Edit</Link>
             
         </div>
        
