@@ -127,7 +127,8 @@ function BackstoryGenerate() {
                         "Content-Type": "application/json"}}
             )
             .then(response => {
-                console.log("this is the testresponse" + response)
+                console.log("this is the testresponse")
+                console.log(response)
                 createdBackstory = response
                 setBackstoryId(createdBackstory.data.backstory[0])
             })
