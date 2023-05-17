@@ -28,7 +28,7 @@ function BackstoryGenerate() {
     function getUser() {
 
         console.log("test3")
-       /*  const userId = user._id
+        const userId = user._id
 
         const storedToken = localStorage.getItem("authToken")
     
@@ -40,7 +40,7 @@ function BackstoryGenerate() {
                 if(response.data.user.character[response.data.user.character.length-1].backstory.length > 0) {
                     scrubBackstory(response.data.user.character[response.data.user.character.length-1].backstory[0])
                 }
-            }) */
+            })
     }
 
     useEffect(() => {
