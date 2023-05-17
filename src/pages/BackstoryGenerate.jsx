@@ -37,6 +37,7 @@ function BackstoryGenerate() {
         )
             .then(response => {
                 setUserData(response.data.user)
+                console.log(response)
                 if(response.data.user.character[response.data.user.character.length-1].backstory.length > 0) {
                     scrubBackstory(response.data.user.character[response.data.user.character.length-1].backstory[0])
                 }
