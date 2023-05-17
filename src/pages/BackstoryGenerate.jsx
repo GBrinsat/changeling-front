@@ -84,6 +84,7 @@ function BackstoryGenerate() {
             { headers: {    Authorization: `Bearer ${storedToken}`,
                             id: backstoryId,
                             character: characterId,
+                            "Access-Control-Allow-Origin": "https://changeling.netlify.app ",
                             "Content-Type": "application/json" }})
                 .then(response => {
                     setBackstory(response.data.message.content)
