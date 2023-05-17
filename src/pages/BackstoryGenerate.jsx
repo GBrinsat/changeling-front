@@ -27,7 +27,8 @@ function BackstoryGenerate() {
 
     function getUser() {
 
-        console.log("test3")
+        //this works
+
         const userId = user._id
 
         const storedToken = localStorage.getItem("authToken")
@@ -37,7 +38,6 @@ function BackstoryGenerate() {
         )
             .then(response => {
                 setUserData(response.data.user)
-                console.log(response)
                 if(response.data.user.character[response.data.user.character.length-1].backstory.length > 0) {
                     scrubBackstory(response.data.user.character[response.data.user.character.length-1].backstory[0])
                 }
@@ -112,9 +112,7 @@ function BackstoryGenerate() {
     function handleSubmit(e) {
         e.preventDefault()
 
-        console.log("test1")
-
-        /* setShowText(true)
+        setShowText(true)
         setShowSpinner(true)
 
         const characterId = userData.character[userData.character.length-1]._id
@@ -129,10 +127,11 @@ function BackstoryGenerate() {
                         "Content-Type": "application/json"}}
             )
             .then(response => {
+                console.log(response)
                 createdBackstory = response
                 setBackstoryId(createdBackstory.data.backstory[0])
             })
-        } else {setBackstoryId(userData.character[userData.character.length-1].backstory[0])}   */
+        } else {setBackstoryId(userData.character[userData.character.length-1].backstory[0])}  
     }
 
     function handleChange1(e) {
