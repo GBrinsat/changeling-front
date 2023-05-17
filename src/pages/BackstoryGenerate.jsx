@@ -59,7 +59,7 @@ function BackstoryGenerate() {
 
         axios.put(`${import.meta.env.VITE_API_URL}/backstory/${backstoryId}`, body,
         { headers: { Authorization: `Bearer ${storedToken}`,
-                    "Content-Type": "application/json"}}
+                    "content-type": "application/json"}}
         )
             .then(() => {
                 navigate("/profile")
@@ -85,7 +85,7 @@ function BackstoryGenerate() {
                             id: backstoryId,
                             character: characterId,
                             "Access-Control-Allow-Origin": "https://changeling.netlify.app ",
-                            "Content-Type": "application/json" }})
+                            "content-type": "application/json" }})
                 .then(response => {
                     setBackstory(response.data.message.content)
                     setShowSpinner(false)
@@ -124,8 +124,8 @@ function BackstoryGenerate() {
 
         if(!userData.character[userData.character.length-1].backstory[0]) {
             axios.post(`${import.meta.env.VITE_API_URL}/backstory/create`, body,
-            { headers: { "Authorization": `Bearer ${storedToken}`,
-                        "Content-Type": "application/json"}}
+            { headers: { Authorization: `Bearer ${storedToken}`,
+                        "content-type": "application/json"}}
             )
             .then(response => {
                 console.log("this is the testresponse")
