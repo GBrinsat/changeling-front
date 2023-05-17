@@ -81,7 +81,7 @@ function BackstoryGenerate() {
         const storedToken = localStorage.getItem("authToken")
 
         axios.get(`${import.meta.env.VITE_API_URL}/backstory/generate`,
-            { headers: {    Authorization: `Bearer ${storedToken}`,
+            { headers: {    "Authorization": `Bearer ${storedToken}`,
                             id: backstoryId,
                             character: characterId,
                             "Access-Control-Allow-Origin": "https://changeling.netlify.app ",
