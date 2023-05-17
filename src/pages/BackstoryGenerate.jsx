@@ -124,7 +124,7 @@ function BackstoryGenerate() {
 
         if(!userData.character[userData.character.length-1].backstory[0]) {
             axios.post(`${import.meta.env.VITE_API_URL}/backstory/create`, body,
-            { headers: { Authorization: `Bearer ${storedToken}`,
+            { headers: { "Authorization": `Bearer ${storedToken}`,
                         "Content-Type": "application/json"}}
             )
             .then(response => {
