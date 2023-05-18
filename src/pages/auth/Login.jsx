@@ -43,7 +43,7 @@ function LoginPage() {
 
       <div className="topbox"></div>
       <div className="d-flex flex-column align-items-center">
-      <h1>Hey!</h1>
+      <h1 className="login-header">Login</h1>
 
       <form className="" onSubmit={handleLoginSubmit}>
 
@@ -67,13 +67,13 @@ function LoginPage() {
         />
         </div>
 
-        <button className="col-9 button login-button" type="submit">Login</button>
+        <button className="col-9 button login-button loginlink" type="submit">Login</button>
       </form>
       { errorMessage && <p className="error-message">{errorMessage}</p> }
 
-      <p>Are you new here?</p>
+      <p className="login-text">Are you new here?</p>
 
-      <Link className="link" to={"/signup"}>Sign Up</Link>
+      <Link className="link loginlink" to={"/signup"}>Sign Up</Link>
       </div>
     </div>
   )

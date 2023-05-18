@@ -226,7 +226,9 @@ function Stats(props) {
         <>
             <div className="character-topbox"></div>
 
-            <div className="character-form">
+            <div className="character-form-name">
+
+            <p className="character-creation-text-start">Choose your abilty scores</p>
             
             <div className="stat-box-large">
                 <div className="stat-box-small">
@@ -270,7 +272,7 @@ function Stats(props) {
                 </div>
             </div>
             
-            <div className="stat-box-large">
+            <div className="stat-box-large lowest-box">
                 <div className="stat-box-small">
                 <p className="stat-heading">Wisdom</p>
                     <div className="stat-box">
@@ -292,7 +294,7 @@ function Stats(props) {
             </div>
                 
                 <div className="button-box">
-                    <button className="back-button">Back</button>
+                    <button className="back-button" type="button" onClick={props.changeComponentsBack3}>Back</button>
                     <button className="continue-button" onClick={submitHandler}>Continue</button>
                 </div>
             </div>

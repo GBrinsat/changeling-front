@@ -139,7 +139,7 @@ function CharacterSheetPage() {
         </>
         :
 
-        <p>test</p>
+        <p>nothing to see here</p>
 
         }
     

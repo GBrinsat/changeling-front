@@ -33,7 +33,7 @@ function RaceNameGender(props) {
         { headers: { Authorization: `Bearer ${storedToken}`}}
         )
             .then(() => {
-                props.changeComponents1()
+                props.switchQuizOn()
             })
     }
 
@@ -65,10 +65,12 @@ function RaceNameGender(props) {
 
             <div className="character-topbox"></div>
 
-            <form className="character-form" onSubmit={submitHandler}>
+            <form className="character-form-name" onSubmit={submitHandler}>
 
+                <p className="character-creation-text-start">Choose a Name</p>
                 <input type="text" placeholder="Name" onChange={handleNameChange} />
 
+                <p>What is your race?</p>
                 <select className="character-creation-select" name="race" onChange={handleRaceChange}>
                     <option value="Dragonborn">Dragonborn</option>
                     <option value="Dwarf">Dwarf</option>
@@ -81,15 +83,17 @@ function RaceNameGender(props) {
                     <option value="Tiefling">Tiefling</option>
                 </select>
 
-                <p className="description">{descriptionSwitch(race)}</p>
+                <p className="description-race">{descriptionSwitch(race)}</p>
 
+                <p>What is your gender?</p>
                 <select className="character-creation-select" name="gender" onChange={handleGenderChange}>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
+                    <option value="Male">Genderless</option>
                 </select>
 
                 <div className="button-box">
-                <button className="back-button">Back</button>
+                <button className="back-button" type="button" onClick={props.changeComponentsBack1}>Back</button>
                 <button className="continue-button" type="submit">Continue</button>
                 </div>
 

@@ -420,14 +420,20 @@ function CharacterSheetEdit() {
                         if(redirect === true) {
                             navigate("/backstory")
                         }
+                        else{
+                            navigate(`/characterSheet/${character._id}`)
+                        }
                     })
             })
-
            
     }
 
     function redirectNow() {
         setRedirect(true)
+    }
+
+    function back() {
+        navigate(`/characterSheet/${character._id}`)
     }
 
     return(
@@ -440,9 +446,9 @@ function CharacterSheetEdit() {
 
             <div className="character-topbox"></div>
 
-            <form className="character-form" onSubmit={submitHandler}>
+            <form className="character-form-name" onSubmit={submitHandler}>
 
-                <input type="text" placeholder={character.name} onChange={handleNameChange} />
+                <input className="edit-input-top" type="text" placeholder={character.name} onChange={handleNameChange} />
 
                 <select className="character-creation-select" name="race" onChange={handleRaceChange}>
                     <option value="" disabled selected>{character.race}</option>
@@ -607,14 +613,15 @@ function CharacterSheetEdit() {
                 <option value="Urchin">Urchin</option>
             </select>
 
-            <button className="button" type="submit" onClick={redirectNow}>Generate a new backstory</button>
+            <button className="button generate-button" type="submit" onClick={redirectNow}>Generate a new backstory</button>
            
             <div className="button-box">
-                <button className="back-button">Back</button>
+                <button className="back-button" type="button" onClick={back}>Back</button>
                 <button className="continue-button" type="submit">Save</button>
             </div>
 
             </form>
+            <div className="bottom-box"></div>
         </>
         }
         </>

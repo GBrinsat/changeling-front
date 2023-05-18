@@ -3,6 +3,7 @@ import StatCard from "../CharacterCreation/StatCard"
 function SheetStats(props) {
     return(
         <>
+        <div className="character-form-name">
            <h2 className="sheet-h2">Ability Scores</h2>
             <div className="stat-box-large">
                 <div className="sheet-stat-box-small">
@@ -56,7 +57,7 @@ function SheetStats(props) {
             </div>
 
             <div className="sheet-container">
-                <h2>Saving Throws</h2>
+                <h2 className="sheet-h2">Saving Throws</h2>
                 <div className="saving-box">
                     <div className="saving-card">
                         <p>Str: +3</p>
@@ -70,6 +71,8 @@ function SheetStats(props) {
                     </div>
                 </div>
             </div>
+            </div>
+            <div className="sheet-bottombox"></div>
         </>
     )
 }

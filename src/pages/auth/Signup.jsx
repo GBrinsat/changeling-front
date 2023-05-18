@@ -39,7 +39,7 @@ function SignupPage(props) {
 
     <div className="topbox"></div>
     <div className="d-flex flex-column align-items-center">
-    <h1>Sign Up</h1>
+    <h1 className="login-header">Sign Up</h1>
 
     <form className="" onSubmit={handleSignupSubmit}>
 
@@ -63,52 +63,16 @@ function SignupPage(props) {
       />
       </div>
 
-      <button className="col-9 button login-button" type="submit">Sign up</button>
+      <button className="col-9 button login-button loginlink" type="submit">Sign up</button>
     </form>
     { errorMessage && <p className="error-message">{errorMessage}</p> }
 
-    <p>Are you new here?</p>
+    <p className="login-text">You already have an account?</p>
 
-    <Link className="link" to={"/login"}>Login</Link>
+    <Link className="link loginlink" to={"/login"}>Login</Link>
     </div>
   </div>
 
-
-    /* <div className="SignupPage">
-
-      <Navbar />
-
-      <div className="topbox"></div>
-      <div className="signup-container">
-      <h1>Sign Up</h1>
-
-      <form className="signup-form" onSubmit={handleSignupSubmit}>
-    
-        <input 
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleName}
-          placeholder="Username"
-        />
-
-        <input 
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-          placeholder="******"
-        />
-      
-        <button className="button" type="submit">Sign Up</button>
-      </form>
-
-      { errorMessage && <p className="error-message">{errorMessage}</p> }
-
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
-      </div>
-    </div> */
   )
 }
 

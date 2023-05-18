@@ -169,12 +169,12 @@ function BackstoryGenerate() {
 
         <div className="character-topbox"></div>
 
-        <form className="backstory-form" onSubmit={handleSubmit}>
+        <form className="character-form-name" onSubmit={handleSubmit}>
 
-            <p className="backstory-header">Choose some options for your backstory:</p>
+            <p className="character-creation-text-start">Choose some options for your backstory:</p>
 
             <select className="character-creation-select"  name="optionals" onChange={handleChange1}>
-                <option value="none">Add an optional addition</option>
+                <option value="none">-</option>
                 <option value="Add a dark secret">Add a dark secret</option>
                 <option value="Grew up at the sea">Grew up at the sea</option>
                 <option value="Has a family of their own">Has a family of their own</option>
@@ -187,7 +187,7 @@ function BackstoryGenerate() {
                 <option value="Was born during a storm">Was born during a storm</option>
             </select>
             <select className="character-creation-select"  name="optionals" onChange={handleChange2}>
-                <option value="none">Add an optional addition</option>
+                <option value="none">-</option>
                 <option value="Lived in the Feywild for a time">Lived in the Feywild for a time</option>
                 <option value="Has Amnesia">Has Amnesia</option>
                 <option value="Has a nemesis">Has a nemesis</option>
@@ -200,7 +200,7 @@ function BackstoryGenerate() {
                 <option value="Had a premonition of things to come in a dream">Had a premonition of things to come in a dream</option>
             </select>
             <select className="character-creation-select"  name="optionals" onChange={handleChange3}>
-                <option value="none">Add an optional addition</option>
+                <option value="none">-</option>
                 <option value="A friend betrayed them">A friend betrayed them</option>
                 <option value="Is estranged from their family">Is estranged from their family</option>
                 <option value="Fought in a war">Fought in a war</option>
@@ -213,7 +213,7 @@ function BackstoryGenerate() {
                 <option value="Is blind">Is blind</option>
             </select>
 
-        <button className="button" type="submit">Generate your backstory!</button>
+        <button className="button generate-button" type="submit">Generate your backstory!</button>
             
         </form>
         </>
@@ -221,14 +221,14 @@ function BackstoryGenerate() {
         : //returnery
 
         <div>  
-        {showSpinner === true && !backstory ? <div className="backstory-loader"><p>Writing backstory...</p> <div className="dots-5"></div></div> : <></>}
+        {showSpinner === true && !backstory ? <div className="backstory-loader"><h1>Writing your tale...</h1> <br /> <div className="dots-5"></div></div> : <></>}
         
         {backstory && 
         <>
 
         <div className="character-topbox"></div>
 
-        <form className="backstory-form" onSubmit={handleBackstorySubmit}>
+        <form className="character-form-name" onSubmit={handleBackstorySubmit}>
             <textarea className="backstory-field" name="backstoryfield" cols="30" rows="10">{backstory}</textarea>
 
             <div className="button-box">

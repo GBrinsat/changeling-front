@@ -8,8 +8,8 @@ function SheetMain(props) {
 
     return(
         <>
-        <div className="sheet-container">
-            <h2>{props.character.name}</h2>
+        <div className="character-form-name">
+            <h2 className="sheet-heading-top">{props.character.name}</h2>
             <p>{toUppercase(props.character.race) + " " + toUppercase(props.character.class)}</p>
             <p>Level 1</p>
 
@@ -38,9 +38,12 @@ function SheetMain(props) {
                     <p>{props.character.speed} feet</p>
                 </div>
             </div>
-
-            <Link className="link" to={`/characterSheet/edit/${props.character._id}`}>Edit</Link>
             
+            <div className="button-box sheet-button-box">
+            <Link className="link back-button" to={`/profile`}>Back</Link>
+            <Link className="link continue-button" to={`/characterSheet/edit/${props.character._id}`}>Edit</Link>
+            </div>
+
         </div>
        
         </>

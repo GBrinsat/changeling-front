@@ -62,8 +62,10 @@ function Class(props) {
 
             <div className="character-topbox"></div>
 
-            <form className="character-form" onSubmit={submitHandler}>
+            <form className="character-form-name" onSubmit={submitHandler}>
 
+                <p className="character-creation-text-start">Choose a class</p>
+            
                 <select className="character-creation-select" name="playerclass" onChange={handlePlayerClassChange}>
                     <option value="Barbarian">Barbarian</option>
                     <option value="Bard">Bard</option>
@@ -79,10 +81,10 @@ function Class(props) {
                     <option value="Wizard">Wizard</option>
                 </select>
 
-                <p className="description">{descriptionSwitch(playerclass)}</p>
+                <p className="description-class">{descriptionSwitch(playerclass)}</p>
 
                 <div className="button-box">
-                <button className="back-button">Back</button>
+                <button className="back-button" type="button" onClick={props.changeComponentsBack2}>Back</button>
                 <button className="continue-button" type="submit">Continue</button>
                 </div>
 
