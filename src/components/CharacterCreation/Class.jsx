@@ -43,6 +43,14 @@ function Class(props) {
         }
     }
 
+    function setClass(){
+        console.log(document.querySelector("#classSelect").value = props.class)
+    }
+
+    useEffect(() => {
+        setClass()
+    }, [])
+
     function submitHandler(e) {
         e.preventDefault()
 
@@ -66,7 +74,7 @@ function Class(props) {
 
                 <p className="character-creation-text-start">Choose a class</p>
             
-                <select className="character-creation-select" name="playerclass" onChange={handlePlayerClassChange}>
+                <select id="classSelect" className="character-creation-select" name="playerclass" onChange={handlePlayerClassChange}>
                     <option value="Barbarian">Barbarian</option>
                     <option value="Bard">Bard</option>
                     <option value="Cleric">Cleric</option>

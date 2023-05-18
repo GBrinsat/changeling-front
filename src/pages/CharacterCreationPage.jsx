@@ -30,20 +30,8 @@ function CharacterCreationPage() {
     const [switch4, setSwitch4] = useState(false)
     const [switchQuiz, setSwitchQuiz] = useState(false)
 
-    //class switches
-
-    const [barbarian, setBarbarian] = useState(false)
-    const [bard, setBard] = useState(false)
-    const [cleric, setCleric] = useState(false)
-    const [druid, setDruid] = useState(false)
-    const [fighter, setFighter] = useState(false)
-    const [monk, setMonk] = useState(false)
-    const [paladin, setPaladin] = useState(false)
-    const [ranger, setRanger] = useState(false)
-    const [rogue, setRogue] = useState(false)
-    const [sorcerer, setSorcerer] = useState(false)
-    const [warlock, setWarlock] = useState(false)
-    const [wizard, setWizard] = useState(false)
+    //class switch
+    const [playerclass, setPlayerclass] = useState("Barbarian")
 
     function changeComponents1() {
         setSwitchQuiz(false)
@@ -80,194 +68,62 @@ function CharacterCreationPage() {
     }
 
     function switchBarbarian(){
-        setBarbarian(true)
-        setBard(false)
-        setCleric(false)
-        setDruid(false)
-        setFighter(false)
-        setMonk(false)
-        setPaladin(false)
-        setRanger(false)
-        setRogue(false)
-        setSorcerer(false)
-        setWarlock(false)
-        setWizard(false)
+        setPlayerclass("Barbarian")
         changeComponents1()
     }
 
     function switchBard(){
-        setBarbarian(false)
-        setBard(true)
-        setCleric(false)
-        setDruid(false)
-        setFighter(false)
-        setMonk(false)
-        setPaladin(false)
-        setRanger(false)
-        setRogue(false)
-        setSorcerer(false)
-        setWarlock(false)
-        setWizard(false)
+        setPlayerclass("Bard")
         changeComponents1()
     }
 
     function switchCleric(){
-        setBarbarian(false)
-        setBard(false)
-        setCleric(true)
-        setDruid(false)
-        setFighter(false)
-        setMonk(false)
-        setPaladin(false)
-        setRanger(false)
-        setRogue(false)
-        setSorcerer(false)
-        setWarlock(false)
-        setWizard(false)
+        setPlayerclass("Cleric")
         changeComponents1()
     }
 
     function switchDruid(){
-        setBarbarian(false)
-        setBard(false)
-        setCleric(false)
-        setDruid(true)
-        setFighter(false)
-        setMonk(false)
-        setPaladin(false)
-        setRanger(false)
-        setRogue(false)
-        setSorcerer(false)
-        setWarlock(false)
-        setWizard(false)
+        setPlayerclass("Druid")
         changeComponents1()
     }
 
     function switchFighter(){
-        setBarbarian(false)
-        setBard(false)
-        setCleric(false)
-        setDruid(false)
-        setFighter(true)
-        setMonk(false)
-        setPaladin(false)
-        setRanger(false)
-        setRogue(false)
-        setSorcerer(false)
-        setWarlock(false)
-        setWizard(false)
+        setPlayerclass("Fighter")
         changeComponents1()
     }
 
     function switchMonk(){
-        setBarbarian(false)
-        setBard(false)
-        setCleric(false)
-        setDruid(false)
-        setFighter(false)
-        setMonk(true)
-        setPaladin(false)
-        setRanger(false)
-        setRogue(false)
-        setSorcerer(false)
-        setWarlock(false)
-        setWizard(false)
+        setPlayerclass("Monk")
         changeComponents1()
     }
 
     function switchPaladin(){
-        setBarbarian(false)
-        setBard(false)
-        setCleric(false)
-        setDruid(false)
-        setFighter(false)
-        setMonk(false)
-        setPaladin(true)
-        setRanger(false)
-        setRogue(false)
-        setSorcerer(false)
-        setWarlock(false)
-        setWizard(false)
+        setPlayerclass("Paladin")
         changeComponents1()
     }
 
     function switchRanger(){
-        setBarbarian(false)
-        setBard(false)
-        setCleric(false)
-        setDruid(false)
-        setFighter(false)
-        setMonk(false)
-        setPaladin(false)
-        setRanger(true)
-        setRogue(false)
-        setSorcerer(false)
-        setWarlock(false)
-        setWizard(false)
+        setPlayerclass("Ranger")
         changeComponents1()
     }
 
     function switchRogue(){
-        setBarbarian(false)
-        setBard(false)
-        setCleric(false)
-        setDruid(false)
-        setFighter(false)
-        setMonk(false)
-        setPaladin(false)
-        setRanger(false)
-        setRogue(true)
-        setSorcerer(false)
-        setWarlock(false)
-        setWizard(false)
+        setPlayerclass("Rogue")
         changeComponents1()
     }
 
     function switchSorcerer(){
-        setBarbarian(false)
-        setBard(false)
-        setCleric(false)
-        setDruid(false)
-        setFighter(false)
-        setMonk(false)
-        setPaladin(false)
-        setRanger(false)
-        setRogue(false)
-        setSorcerer(true)
-        setWarlock(false)
-        setWizard(false)
+        setPlayerclass("Sorcerer")
         changeComponents1()
     }
 
     function switchWarlock(){
-        setBarbarian(false)
-        setBard(false)
-        setCleric(false)
-        setDruid(false)
-        setFighter(false)
-        setMonk(false)
-        setPaladin(false)
-        setRanger(false)
-        setRogue(false)
-        setSorcerer(false)
-        setWarlock(true)
-        setWizard(false)
+        setPlayerclass("Warlock")
         changeComponents1()
     }
 
     function switchWizard(){
-        setBarbarian(false)
-        setBard(false)
-        setCleric(false)
-        setDruid(false)
-        setFighter(false)
-        setMonk(false)
-        setPaladin(false)
-        setRanger(false)
-        setRogue(false)
-        setSorcerer(false)
-        setWarlock(false)
-        setWizard(true)
+        setPlayerclass("Wizard")
         changeComponents1()
     }
 
@@ -342,7 +198,7 @@ function CharacterCreationPage() {
 
                     switch2 ? 
                         
-                    character && <Class id={character._id} changeComponents2={changeComponents2} changeComponentsBack2={changeComponentsBack2}/>
+                    character && <Class id={character._id} class={playerclass} changeComponents2={changeComponents2} changeComponentsBack2={changeComponentsBack2}/>
 
                     :
 

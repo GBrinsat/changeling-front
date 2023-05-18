@@ -129,7 +129,7 @@ function ClassQuiz(props) {
                 <div className="character-form-name">
                     <p className="character-creation-text-start">Do you want to primarily fight from a distance or up close?</p>
                     <div className="button-box-vertical">
-                        <button className="quiz-answer" onClick={switchTo3}>Fight from a distance.</button>
+                        <button className="quiz-answer" onClick={switchTo10}>Fight from a distance.</button>
                         <button className="quiz-answer"onClick={switchTo5}>Up close and personal</button>
                     </div>
                     <button onClick={switchBackTo1} className="back-button quiz-back">Back</button>
