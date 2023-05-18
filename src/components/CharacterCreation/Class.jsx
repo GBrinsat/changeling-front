@@ -44,7 +44,7 @@ function Class(props) {
     }
 
     function setClass(){
-        console.log(document.querySelector("#classSelect").value = props.class)
+        document.querySelector("#classSelect").value = props.class
         descriptionSwitch(props.class)
     }
 
