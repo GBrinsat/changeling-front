@@ -44,6 +44,7 @@ function Class(props) {
     }
 
     function setClass(){
+        SetPlayerClass(props.class)
         document.querySelector("#classSelect").value = props.class
         descriptionSwitch(props.class)
     }
