@@ -1,11 +1,11 @@
 function StatCard(props) {
-    return(
-        <>
-        <div className="stat-card">
+  return (
+    <>
+      <div className="stat-card">
         <p>{props.stat}</p>
-        </div>
-        </>
-    )
+      </div>
+    </>
+  );
 }
 
-export default StatCard
+export default StatCard;

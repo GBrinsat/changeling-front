@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -11,69 +10,69 @@ function SignupPage(props) {
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
-  
+
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
 
-  
   const handleSignupSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const requestBody = {name, password}
+    const requestBody = { name, password };
 
-    axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
-        .then(() => {
-            navigate('/login')
-        })
-        .catch(err => {
-            const errorDescription = err.response.data.message;
-            setErrorMessage(errorDescription);
-        })
+    axios
+      .post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((err) => {
+        const errorDescription = err.response.data.message;
+        setErrorMessage(errorDescription);
+      });
   };
 
-  
   return (
     <div className="LoginPage">
+      <Navbar className="navbar" />
 
-    <Navbar className="navbar"/>
+      <div className="topbox"></div>
+      <div className="d-flex flex-column align-items-center">
+        <h1 className="login-header">Sign Up</h1>
 
-    <div className="topbox"></div>
-    <div className="d-flex flex-column align-items-center">
-    <h1 className="login-header">Sign Up</h1>
+        <form className="" onSubmit={handleSignupSubmit}>
+          <div className="col-9">
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleName}
+              placeholder="Username"
+            />
+          </div>
 
-    <form className="" onSubmit={handleSignupSubmit}>
+          <div className="col-9">
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+              placeholder="******"
+            />
+          </div>
 
-      <div className="col-9">
-      <input
-        type="text"
-        name="name"
-        value={name}
-        onChange={handleName}
-        placeholder="Username"
-      />
+          <button className="col-9 button login-button loginlink" type="submit">
+            Sign up
+          </button>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+        <p className="login-text">You already have an account?</p>
+
+        <Link className="link loginlink" to={"/login"}>
+          Login
+        </Link>
       </div>
-
-      <div className="col-9">
-      <input
-        type="password"
-        name="password"
-        value={password}
-        onChange={handlePassword}
-        placeholder="******"
-      />
-      </div>
-
-      <button className="col-9 button login-button loginlink" type="submit">Sign up</button>
-    </form>
-    { errorMessage && <p className="error-message">{errorMessage}</p> }
-
-    <p className="login-text">You already have an account?</p>
-
-    <Link className="link loginlink" to={"/login"}>Login</Link>
     </div>
-  </div>
-
-  )
+  );
 }
 
 export default SignupPage;
