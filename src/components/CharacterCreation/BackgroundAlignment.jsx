@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 function BackgroundAlignment(props) {
 
     const [alignment, setAlignment] = useState("lawful good")
-    const [background, setBackground] = useState("acolyte")
+    const [background, setBackground] = useState("Acolyte")
 
     const navigate = useNavigate();
 
