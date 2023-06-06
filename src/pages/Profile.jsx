@@ -50,31 +50,33 @@ function Profile() {
 
   return (
     <>
-      <Navbar />
+      <div className="scrollbox">
+        <Navbar />
 
-      <div className="character-topbox"></div>
+        <div className="character-topbox"></div>
 
-      {userData &&
-        userData.character.map((singleCharacter) => {
-          return (
-            <>
-              <CharacterCard
-                key={singleCharacter._id}
-                id={singleCharacter._id}
-                getUser={getUser}
-                userId={user._id}
-              />
-            </>
-          );
-        })}
+        {userData &&
+          userData.character.map((singleCharacter) => {
+            return (
+              <>
+                <CharacterCard
+                  key={singleCharacter._id}
+                  id={singleCharacter._id}
+                  getUser={getUser}
+                  userId={user._id}
+                />
+              </>
+            );
+          })}
 
-      {userData && (
-        <button className="button character-button" onClick={handleClick}>
-          {userData.character.length === 0
-            ? `Create your first character`
-            : `Create new character`}
-        </button>
-      )}
+        {userData && (
+          <button className="button character-button" onClick={handleClick}>
+            {userData.character.length === 0
+              ? `Create your first character`
+              : `Create new character`}
+          </button>
+        )}
+      </div>
     </>
   );
 }

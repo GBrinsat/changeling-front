@@ -32,9 +32,8 @@ function HomePage() {
 
   return (
     <>
-      <header>
+      <div className="scrollbox">
         <Navbar />
-      </header>
 
       {user ? (
         <>
@@ -75,6 +74,7 @@ function HomePage() {
           </div>
         </>
       )}
+      </div>
     </>
   );
 }

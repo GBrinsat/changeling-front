@@ -438,7 +438,7 @@ function CharacterSheetEdit() {
   return (
     <>
       {character && (
-        <>
+        <div className="scrollbox">
           <Navbar />
 
           <div className="character-topbox"></div>
@@ -758,7 +758,7 @@ function CharacterSheetEdit() {
             </div>
           </form>
           <div className="bottom-box"></div>
-        </>
+        </div>
       )}
     </>
   );

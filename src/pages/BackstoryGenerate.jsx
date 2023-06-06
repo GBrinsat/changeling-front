@@ -182,7 +182,7 @@ function BackstoryGenerate() {
     setBackstoryUpdate(e.target.backstoryfield.value);
   }
   return (
-    <>
+    <div className="scrollbox">
       <Navbar />
       {showText === false ? (
         <>
@@ -333,7 +333,7 @@ function BackstoryGenerate() {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 }
 

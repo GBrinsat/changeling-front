@@ -164,7 +164,7 @@ function CharacterCreationPage() {
   }, [userData]);
 
   return (
-    <>
+    <div className="scrollbox">
       {<Navbar />}
 
       {switch1 ? (
@@ -240,7 +240,7 @@ function CharacterCreationPage() {
                 
 
             } */}
-    </>
+    </div>
   );
 }
 

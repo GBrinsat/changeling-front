@@ -103,6 +103,7 @@ function CharacterSheetPage() {
 
   return (
     <>
+    <div className="scrollbox">
       <Navbar />
 
       <div className="sheet-topbox"></div>
@@ -142,6 +143,7 @@ function CharacterSheetPage() {
       ) : (
         <p>nothing to see here</p>
       )}
+      </div>
     </>
   );
 }

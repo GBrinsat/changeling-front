@@ -17,7 +17,6 @@ function SheetMain(props) {
         <p>Level 1</p>
 
         <br />
-        <br />
 
         <div className="sheet-box-small">
           <div className="sheet-card">

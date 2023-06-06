@@ -40,7 +40,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="scrollbox">
       <Navbar className="navbar" />
 
       <div className="topbox"></div>
