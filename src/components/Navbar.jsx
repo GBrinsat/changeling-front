@@ -12,13 +12,13 @@ function Navbar() {
   //  Update the rendering logic to display different content
   //  depending on whether the user is logged in or not
   return (
-    <nav className="navbar navbar-expand-lg navbar-main">
+    <nav className="navbar navbar-expand-xxl navbar-main">
       <div className="container-fluid">
         <a className="navbar-brand navbar-logo" href="/">
           Changeling
         </a>
         <button
-          className="navbar-toggler nav-border"
+          className="navbar-toggler nav-noborder"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavAltMarkup"

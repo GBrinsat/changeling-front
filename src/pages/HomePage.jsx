@@ -62,6 +62,8 @@ function HomePage() {
               with our assisted creation tool. Create valiant heroes and
               riveting backstories in a couple of simple steps
             </p>
+            <br />
+            <p className="character-creation-text-start login-text">Use the app on your mobile device for the best experience!</p>
 
             <Link className="link loginlink" to={"/signup"}>
               Sign Up
