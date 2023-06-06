@@ -41,18 +41,17 @@ body {
     }
 
     .scrollbox {
-      height: 740px;
+      height: 735px;
       margin-top: 60px;
       padding-top: 10px;
       overflow: auto;
     }
 
-    .sheet-footer-container{
+    .sheet-footer-container {
       position: absolute;
       left: auto;
       right: auto;
-      bottom: 55px;
-      padding-left:25px
+      padding-left: 25px;
     }
   }
 }
