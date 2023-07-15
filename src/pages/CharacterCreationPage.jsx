@@ -163,6 +163,16 @@ function CharacterCreationPage() {
     }
   }, [userData]);
 
+  useEffect(() => {
+    console.log(character);
+    if (character === null) {
+      return;
+    } else if (character.alignment !== "") {
+      setSwitch1(false);
+      setSwitch4(true);
+    }
+  }, [character]);
+
   return (
     <div className="scrollbox">
       {<Navbar />}
@@ -207,6 +217,7 @@ function CharacterCreationPage() {
         character && (
           <Stats
             id={character._id}
+            playerclass={playerclass}
             changeComponents3={changeComponents3}
             changeComponentsBack3={changeComponentsBack3}
           />
@@ -217,29 +228,6 @@ function CharacterCreationPage() {
           changeComponentsBack4={changeComponentsBack4}
         />
       )}
-
-      {/*  {switch1 ? 
-
-            character && <RaceNameGender id={character._id} changeComponents1={changeComponents1} changeComponentsBack1={changeComponentsBack1}/>
-
-            :
-            
-                switch2 ? 
-                    
-                   character && <Class id={character._id} changeComponents2={changeComponents2} changeComponentsBack2={changeComponentsBack2}/>
-
-                   :
-
-                   switch3 ?
-
-                    character && <Stats id={character._id} changeComponents3={changeComponents3} changeComponentsBack3={changeComponentsBack3}/>
-
-                    : 
-
-                     <BackgroundAlignment id={character._id} changeComponentsBack4={changeComponentsBack4}/>
-                
-
-            } */}
     </div>
   );
 }

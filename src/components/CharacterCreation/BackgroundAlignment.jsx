@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function BackgroundAlignment(props) {
+  const [showModal, setShowModal] = useState(true);
+
   const [alignment, setAlignment] = useState("lawful good");
   const [background, setBackground] = useState("Acolyte");
 
@@ -58,9 +60,36 @@ function BackgroundAlignment(props) {
       });
   }
 
+  function closeModal() {
+    setShowModal(false);
+  }
+
   return (
     <>
       <div className="character-topbox"></div>
+
+      {showModal === true ? (
+        <div className="modal-backdrop">
+          <div className="modal-body-stats">
+            <p className="modal-text">
+              Here you can choose your alignment, which specifies if your
+              character is good or evil aligned.
+            </p>
+            <p className="modal-text">
+              Your background explains what your character did before becoming
+              an adventurer.
+            </p>
+            <div className="modal-buttons-column">
+              <button className="modal-close-info" onClick={closeModal}>
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+
       <form className="character-form-name" onSubmit={submitHandler}>
         <p className="character-creation-text-start">Choose your alignment</p>
 

@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 function ClassQuiz(props) {
+  const [showModal, setShowModal] = useState(true);
+
   const [question1, setQuestion1] = useState(true);
   const [question2, setQuestion2] = useState(false);
   const [question3, setQuestion3] = useState(false);
@@ -86,12 +88,37 @@ function ClassQuiz(props) {
     setQuestion3(false);
   }
 
+  function closeModal() {
+    setShowModal(false);
+  }
+
+  function openModal() {
+    setShowModal(true);
+  }
+
   return (
     <>
       <div className="character-topbox"></div>
 
       {question1 === true ? (
         <>
+          {showModal === true ? (
+            <div className="modal-backdrop">
+              <div className="modal-body">
+                <p className="modal-text">
+                  Let's find out which class fits best to you. Answer the
+                  following questions however you feel sounds interesting.
+                </p>
+                <div className="modal-buttons-column">
+                  <button className="modal-close-info" onClick={closeModal}>
+                    Got it
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
           <div className="character-form-name">
             <p className="character-creation-text-start">
               Do you want to be a magic user?

@@ -4,6 +4,14 @@ import axios from "axios";
 import StatCard from "./StatCard";
 
 function Stats(props) {
+  const [showModal, setShowModal] = useState(true);
+  const [showStr, setShowStr] = useState(false);
+  const [showDex, setShowDex] = useState(false);
+  const [showCon, setShowCon] = useState(false);
+  const [showInt, setShowInt] = useState(false);
+  const [showWis, setShowWis] = useState(false);
+  const [showCha, setShowCha] = useState(false);
+
   const [str, SetStr] = useState(10);
   const [strmod, SetStrmod] = useState(0);
   const [dex, SetDex] = useState(10);
@@ -16,6 +24,73 @@ function Stats(props) {
   const [wismod, SetWismod] = useState(0);
   const [cha, SetCha] = useState(10);
   const [chamod, SetChamod] = useState(0);
+
+  /*     --------- preset stats -------- */
+
+  function setStats(param) {
+    switch (param) {
+      case `Barbarian`:
+        return (
+          SetStr(15), SetDex(13), SetCon(14), SetInt(9), SetWis(11), SetCha(10)
+        );
+      case `Bard`:
+        return (
+          SetStr(8), SetDex(15), SetCon(13), SetInt(10), SetWis(10), SetCha(15)
+        );
+      case `Cleric`:
+        return (
+          SetStr(14), SetDex(8), SetCon(14), SetInt(10), SetWis(15), SetCha(10)
+        );
+      case `Druid`:
+        return (
+          SetStr(10), SetDex(12), SetCon(14), SetInt(12), SetWis(15), SetCha(9)
+        );
+      case `Fighter`:
+        return (
+          SetStr(15), SetDex(10), SetCon(15), SetInt(10), SetWis(12), SetCha(9)
+        );
+      case `Monk`:
+        return (
+          SetStr(8), SetDex(15), SetCon(13), SetInt(10), SetWis(14), SetCha(12)
+        );
+      case `Paladin`:
+        return (
+          SetStr(15), SetDex(10), SetCon(15), SetInt(12), SetWis(9), SetCha(10)
+        );
+      case `Ranger`:
+        return (
+          SetStr(9), SetDex(15), SetCon(12), SetInt(10), SetWis(15), SetCha(10)
+        );
+      case `Rogue`:
+        return (
+          SetStr(10), SetDex(15), SetCon(12), SetInt(9), SetWis(10), SetCha(15)
+        );
+      case `Sorcerer`:
+        return (
+          SetStr(9), SetDex(12), SetCon(13), SetInt(11), SetWis(13), SetCha(15)
+        );
+      case `Warlock`:
+        return (
+          SetStr(10), SetDex(14), SetCon(14), SetInt(10), SetWis(8), SetCha(15)
+        );
+      case `Wizard`:
+        return (
+          SetStr(10), SetDex(15), SetCon(12), SetInt(15), SetWis(10), SetCha(9)
+        );
+    }
+  }
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("authToken");
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/character/find/${props.id}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        setStats(response.data.class);
+      });
+  }, []);
 
   /*     --------- stat change effect handlers -------- */
 
@@ -231,9 +306,72 @@ function Stats(props) {
       });
   }
 
+  function closeModal() {
+    setShowModal(false);
+  }
+
+  function showStat(stat) {
+    switch (stat) {
+      case `str`:
+        return setShowStr(true);
+      case `dex`:
+        return setShowDex(true);
+      case `con`:
+        return setShowCon(true);
+      case `int`:
+        return setShowInt(true);
+      case `wis`:
+        return setShowWis(true);
+      case `cha`:
+        return setShowCha(true);
+    }
+  }
+
   return (
     <>
       <div className="character-topbox"></div>
+
+      {showModal === true ? (
+        <div className="modal-backdrop">
+          <div className="modal-body-stats">
+            <p className="modal-text">
+              These are your Stat scores. They decide how good you are in
+              combat, magic and specific skills. Click on a Stat to learn more
+              about it.
+            </p>
+            <p className="modal-text">
+              We preselected Stats based on your class choice. Feel free to
+              change them to better fit your character.
+            </p>
+            <div className="modal-buttons-column">
+              <button className="modal-close-info" onClick={closeModal}>
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+
+      {showStr === true ? (
+        <div className="modal-backdrop">
+          <div className="modal-body-stats">
+            <p className="modal-text">
+              Strength determines your characters physical abilities. The more
+              Strength you posess, the stronger you are with melee weapons in
+              combat. Associated skills: Athletics
+            </p>
+            <div className="modal-buttons-column">
+              <button className="modal-close-info" onClick={closeModal}>
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
 
       <div className="character-form-name">
         <p className="character-creation-text-start">
@@ -242,7 +380,12 @@ function Stats(props) {
 
         <div className="stat-box-large">
           <div className="stat-box-small">
-            <p className="stat-heading">Strength</p>
+            {/* <p className="stat-heading">
+              Strength
+            </p> */}
+            <button className="stat-heading" /* onClick={showStat("str")} */>
+              Strength
+            </button>
             <div className="stat-box">
               <StatCard statname={"Strength"} stat={str} mod={strmod} />
               <div className="stat-buttons">

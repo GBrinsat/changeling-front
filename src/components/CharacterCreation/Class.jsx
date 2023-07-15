@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Class(props) {
+  const [showModal, setShowModal] = useState(true);
+
   const [playerclass, SetPlayerClass] = useState("Barbarian");
 
   function handlePlayerClassChange(e) {
@@ -66,9 +68,31 @@ function Class(props) {
       });
   }
 
+  function closeModal() {
+    setShowModal(false);
+  }
+
   return (
     <>
       <div className="character-topbox"></div>
+
+      {showModal === true ? (
+        <div className="modal-backdrop">
+          <div className="modal-body">
+            <p className="modal-text">
+              This Class is our suggestion. Feel free to check out the other
+              classes and choose whatever sounds the most interesting.
+            </p>
+            <div className="modal-buttons-column">
+              <button className="modal-close-info" onClick={closeModal}>
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
 
       <form className="character-form-name" onSubmit={submitHandler}>
         <p className="character-creation-text-start">Choose a class</p>

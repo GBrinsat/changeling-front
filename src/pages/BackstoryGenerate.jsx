@@ -11,6 +11,8 @@ import Navbar from "../components/Navbar";
 function BackstoryGenerate() {
   const { user } = useContext(AuthContext);
 
+  const [showModal, setShowModal] = useState(true);
+
   const [userData, setUserData] = useState(null);
   const [backstory, setBackstory] = useState("");
   const [backstoryUpdate, setBackstoryUpdate] = useState("");
@@ -104,23 +106,6 @@ function BackstoryGenerate() {
       });
   }
 
-  function scrubBackstory(id) {
-    console.log("test5");
-
-    /* setOption1("none")
-        setOption2("none")
-        setOption3("none")
-        setBackstory("")
-
-        const storedToken = localStorage.getItem("authToken")
-        const body = {text: backstoryUpdate, option1, option2, option3}
-
-        axios.put(`${import.meta.env.VITE_API_URL}/backstory/${id}`, body,
-        { headers: { Authorization: `Bearer ${storedToken}`,
-                    "Content-Type": "application/json"}}
-        ) */
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -169,9 +154,6 @@ function BackstoryGenerate() {
 
   function handleBack(e) {
     e.preventDefault();
-    scrubBackstory(
-      userData.character[userData.character.length - 1].backstory[0]
-    );
     setBackstory("");
     setShowText(false);
   }
@@ -181,12 +163,43 @@ function BackstoryGenerate() {
 
     setBackstoryUpdate(e.target.backstoryfield.value);
   }
+
+  function closeModal() {
+    setShowModal(false);
+  }
+
+  function back() {
+    navigate("/characterCreation");
+  }
+
   return (
     <div className="scrollbox">
       <Navbar />
       {showText === false ? (
         <>
           <div className="character-topbox"></div>
+
+          {showModal === true ? (
+            <div className="modal-backdrop">
+              <div className="modal-body-stats">
+                <p className="modal-text">
+                  Now we can generate your characters backstory based on your
+                  choices.
+                </p>
+                <p className="modal-text">
+                  You can add some additional options to your backstory here or
+                  you can choose to leave them empty.
+                </p>
+                <div className="modal-buttons-column">
+                  <button className="modal-close-info" onClick={closeModal}>
+                    Got it
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
 
           <form className="character-form-name" onSubmit={handleSubmit}>
             <p className="character-creation-text-start">
@@ -287,6 +300,10 @@ function BackstoryGenerate() {
 
             <button className="button generate-button" type="submit">
               Generate your backstory!
+            </button>
+
+            <button className="button return-button" onClick={back}>
+              Back
             </button>
           </form>
         </>
