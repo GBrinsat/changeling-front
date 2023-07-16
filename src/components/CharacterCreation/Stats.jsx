@@ -327,21 +327,44 @@ function Stats(props) {
     }
   }
 
+  function closeStat(stat) {
+    switch (stat) {
+      case `str`:
+        return setShowStr(false);
+      case `dex`:
+        return setShowDex(false);
+      case `con`:
+        return setShowCon(false);
+      case `int`:
+        return setShowInt(false);
+      case `wis`:
+        return setShowWis(false);
+      case `cha`:
+        return setShowCha(false);
+    }
+  }
+
   return (
     <>
       <div className="character-topbox"></div>
+
+      {/*  -----------modals------------ */}
 
       {showModal === true ? (
         <div className="modal-backdrop">
           <div className="modal-body-stats">
             <p className="modal-text">
-              These are your Stat scores. They decide how good you are in
-              combat, magic and specific skills. Click on a Stat to learn more
-              about it.
+              These are your ability scores. They decide how good you are in
+              combat, magic and specific skills. Click on a ability score to
+              learn more about it.
             </p>
             <p className="modal-text">
-              We preselected Stats based on your class choice. Feel free to
-              change them to better fit your character.
+              We preselected scores based on your class choice, so that you have
+              a well rounded character. Feel free to change them to better fit
+              your character.
+            </p>
+            <p className="modal-text">
+              A score of 10 represents the average human being.
             </p>
             <div className="modal-buttons-column">
               <button className="modal-close-info" onClick={closeModal}>
@@ -359,11 +382,15 @@ function Stats(props) {
           <div className="modal-body-stats">
             <p className="modal-text">
               Strength determines your characters physical abilities. The more
-              Strength you posess, the stronger you are with melee weapons in
-              combat. Associated skills: Athletics
+              Strength you possess, the stronger you are with melee weapons in
+              combat.
             </p>
+            <p className="modal-text">Associated skills: Athletics</p>
             <div className="modal-buttons-column">
-              <button className="modal-close-info" onClick={closeModal}>
+              <button
+                className="modal-close-info"
+                onClick={() => closeStat("str")}
+              >
                 Got it
               </button>
             </div>
@@ -373,6 +400,131 @@ function Stats(props) {
         <></>
       )}
 
+      {showDex === true ? (
+        <div className="modal-backdrop">
+          <div className="modal-body-stats">
+            <p className="modal-text">
+              Dexterity determines how quick your characters reflexes are and
+              how agile they are. Characters with high dexterity can more easily
+              evade their enemies attacks.
+            </p>
+            <p className="modal-text">
+              Associated skills: Acrobatics, Sleight of Hand, Stealth
+            </p>
+            <div className="modal-buttons-column">
+              <button
+                className="modal-close-info"
+                onClick={() => closeStat("dex")}
+              >
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+
+      {showCon === true ? (
+        <div className="modal-backdrop">
+          <div className="modal-body-stats">
+            <p className="modal-text">
+              Constitution determines how much damage your character can sustain
+              before falling unconscious. It directly affects your maximum hit
+              points.
+            </p>
+            <div className="modal-buttons-column">
+              <button
+                className="modal-close-info"
+                onClick={() => closeStat("con")}
+              >
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+
+      {showInt === true ? (
+        <div className="modal-backdrop">
+          <div className="modal-body-stats">
+            <p className="modal-text">
+              Intelligence determines the mental capacity of your character. It
+              represents how learned you are in scholarly topics.
+            </p>
+            <p className="modal-text">
+              Associated skills: Arcana, History, Investigation, Nature,
+              Religion
+            </p>
+            <div className="modal-buttons-column">
+              <button
+                className="modal-close-info"
+                onClick={() => closeStat("int")}
+              >
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+
+      {showWis === true ? (
+        <div className="modal-backdrop">
+          <div className="modal-body-stats">
+            <p className="modal-text">
+              Wisdom determines how attuned your character is to the world
+              around you. It affects your perceptiveness and intuition.
+            </p>
+            <p className="modal-text">
+              Associated skills: Animal Handling, Insight, Medicine, Perception,
+              Survival
+            </p>
+            <div className="modal-buttons-column">
+              <button
+                className="modal-close-info"
+                onClick={() => closeStat("wis")}
+              >
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+
+      {showCha === true ? (
+        <div className="modal-backdrop">
+          <div className="modal-body-stats">
+            <p className="modal-text">
+              Charisma determines your characters ability to interact with other
+              people. A high charisma score makes you more eloquent and
+              charming.
+            </p>
+            <p className="modal-text">
+              Associated skills: Deception, Intimidation, Performance,
+              Persuasion
+            </p>
+            <div className="modal-buttons-column">
+              <button
+                className="modal-close-info"
+                onClick={() => closeStat("cha")}
+              >
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+
+      {/*  ----------Statboxes------------- */}
+
       <div className="character-form-name">
         <p className="character-creation-text-start">
           Choose your abilty scores
@@ -380,10 +532,7 @@ function Stats(props) {
 
         <div className="stat-box-large">
           <div className="stat-box-small">
-            {/* <p className="stat-heading">
-              Strength
-            </p> */}
-            <button className="stat-heading" /* onClick={showStat("str")} */>
+            <button className="stat-heading" onClick={() => showStat("str")}>
               Strength
             </button>
             <div className="stat-box">
@@ -405,7 +554,9 @@ function Stats(props) {
             </div>
           </div>
           <div className="stat-box-small">
-            <p className="stat-heading">Dexterity</p>
+            <button className="stat-heading" onClick={() => showStat("dex")}>
+              Dexterity
+            </button>
             <div className="stat-box">
               <StatCard statname={"Dexterity"} stat={dex} mod={dexmod} />
               <div className="stat-buttons">
@@ -428,7 +579,9 @@ function Stats(props) {
 
         <div className="stat-box-large">
           <div className="stat-box-small">
-            <p className="stat-heading">Constitution</p>
+            <button className="stat-heading" onClick={() => showStat("con")}>
+              Constitution
+            </button>
             <div className="stat-box">
               <StatCard statname={"Constitution"} stat={con} mod={conmod} />
               <div className="stat-buttons">
@@ -448,7 +601,9 @@ function Stats(props) {
             </div>
           </div>
           <div className="stat-box-small">
-            <p className="stat-heading">Intelligence</p>
+            <button className="stat-heading" onClick={() => showStat("int")}>
+              Intelligence
+            </button>
             <div className="stat-box">
               <StatCard statname={"Intelligence"} stat={int} mod={intmod} />
               <div className="stat-buttons">
@@ -471,7 +626,9 @@ function Stats(props) {
 
         <div className="stat-box-large lowest-box">
           <div className="stat-box-small">
-            <p className="stat-heading">Wisdom</p>
+            <button className="stat-heading" onClick={() => showStat("wis")}>
+              Wisdom
+            </button>
             <div className="stat-box">
               <StatCard statname={"Wisdom"} stat={wis} mod={wismod} />
               <div className="stat-buttons">
@@ -491,7 +648,9 @@ function Stats(props) {
             </div>
           </div>
           <div className="stat-box-small">
-            <p className="stat-heading">Charisma</p>
+            <button className="stat-heading" onClick={() => showStat("cha")}>
+              Charisma
+            </button>
             <div className="stat-box">
               <StatCard statname={"Charisma"} stat={cha} mod={chamod} />
               <div className="stat-buttons">
@@ -525,6 +684,8 @@ function Stats(props) {
           </button>
         </div>
       </div>
+
+      <div className="character-topbox"></div>
     </>
   );
 }
