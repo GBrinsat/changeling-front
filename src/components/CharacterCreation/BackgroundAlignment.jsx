@@ -23,7 +23,7 @@ function BackgroundAlignment(props) {
   function descriptionSwitch(param) {
     switch (param) {
       case `Acolyte`:
-        return ` As an Acolyte you have spent your life in religious study and service. You have extensive knowledge of religious rituals, texts, and traditions.`;
+        return `As an Acolyte you have spent your life in religious study and service. You have extensive knowledge of religious rituals, texts, and traditions.`;
       case `Criminal`:
         return `You have a history with illicit activities. You might have been a thief, a smuggler, or a member of an organized crime syndicate.`;
       case `Entertainer`:

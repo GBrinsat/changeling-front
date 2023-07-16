@@ -25,29 +25,31 @@ function Stats(props) {
   const [cha, SetCha] = useState(10);
   const [chamod, SetChamod] = useState(0);
 
+  const [counter, setCounter] = useState(27);
+
   /*     --------- preset stats -------- */
 
   function setStats(param) {
     switch (param) {
       case `Barbarian`:
         return (
-          SetStr(15), SetDex(13), SetCon(14), SetInt(9), SetWis(11), SetCha(10)
+          SetStr(15), SetDex(13), SetCon(14), SetInt(8), SetWis(12), SetCha(10)
         );
       case `Bard`:
         return (
-          SetStr(8), SetDex(15), SetCon(13), SetInt(10), SetWis(10), SetCha(15)
+          SetStr(8), SetDex(14), SetCon(13), SetInt(10), SetWis(12), SetCha(15)
         );
       case `Cleric`:
         return (
-          SetStr(14), SetDex(8), SetCon(14), SetInt(10), SetWis(15), SetCha(10)
+          SetStr(13), SetDex(8), SetCon(14), SetInt(12), SetWis(15), SetCha(10)
         );
       case `Druid`:
         return (
-          SetStr(10), SetDex(12), SetCon(14), SetInt(12), SetWis(15), SetCha(9)
+          SetStr(10), SetDex(12), SetCon(14), SetInt(13), SetWis(15), SetCha(8)
         );
       case `Fighter`:
         return (
-          SetStr(15), SetDex(10), SetCon(15), SetInt(10), SetWis(12), SetCha(9)
+          SetStr(15), SetDex(13), SetCon(14), SetInt(8), SetWis(12), SetCha(10)
         );
       case `Monk`:
         return (
@@ -55,27 +57,27 @@ function Stats(props) {
         );
       case `Paladin`:
         return (
-          SetStr(15), SetDex(10), SetCon(15), SetInt(12), SetWis(9), SetCha(10)
+          SetStr(15), SetDex(10), SetCon(14), SetInt(13), SetWis(8), SetCha(12)
         );
       case `Ranger`:
         return (
-          SetStr(9), SetDex(15), SetCon(12), SetInt(10), SetWis(15), SetCha(10)
+          SetStr(8), SetDex(15), SetCon(13), SetInt(12), SetWis(14), SetCha(10)
         );
       case `Rogue`:
         return (
-          SetStr(10), SetDex(15), SetCon(12), SetInt(9), SetWis(10), SetCha(15)
+          SetStr(10), SetDex(15), SetCon(13), SetInt(8), SetWis(12), SetCha(14)
         );
       case `Sorcerer`:
         return (
-          SetStr(9), SetDex(12), SetCon(13), SetInt(11), SetWis(13), SetCha(15)
+          SetStr(8), SetDex(12), SetCon(13), SetInt(10), SetWis(14), SetCha(15)
         );
       case `Warlock`:
         return (
-          SetStr(10), SetDex(14), SetCon(14), SetInt(10), SetWis(8), SetCha(15)
+          SetStr(10), SetDex(13), SetCon(14), SetInt(12), SetWis(8), SetCha(15)
         );
       case `Wizard`:
         return (
-          SetStr(10), SetDex(15), SetCon(12), SetInt(15), SetWis(10), SetCha(9)
+          SetStr(8), SetDex(14), SetCon(13), SetInt(15), SetWis(12), SetCha(10)
         );
     }
   }
@@ -224,55 +226,109 @@ function Stats(props) {
 
   function strengthChange(op) {
     let strNew = str;
-    if (op === "+" && str < 15) {
+    let counterNew = counter;
+    if (op === "+" && str < 13 && counter < 27) {
       SetStr((strNew += 1));
-    } else if (op === "-" && str > 8) {
+      setCounter((counterNew += 1));
+    } else if (op === "+" && str < 15 && counter < 26) {
+      SetStr((strNew += 1));
+      setCounter((counterNew += 2));
+    } else if (op === "-" && str > 8 && str < 14) {
       SetStr((strNew -= 1));
+      setCounter((counterNew -= 1));
+    } else if (op === "-" && str > 8 && str >= 14) {
+      SetStr((strNew -= 1));
+      setCounter((counterNew -= 2));
     }
   }
 
   function dexterityChange(op) {
     let dexNew = dex;
-    if (op === "+" && dex < 15) {
+    let counterNew = counter;
+    if (op === "+" && dex < 13 && counter < 27) {
       SetDex((dexNew += 1));
-    } else if (op === "-" && dex > 8) {
+      setCounter((counterNew += 1));
+    } else if (op === "+" && dex < 15 && counter < 26) {
+      SetDex((dexNew += 1));
+      setCounter((counterNew += 2));
+    } else if (op === "-" && dex > 8 && dex < 14) {
       SetDex((dexNew -= 1));
+      setCounter((counterNew -= 1));
+    } else if (op === "-" && dex > 8 && dex >= 14) {
+      SetDex((dexNew -= 1));
+      setCounter((counterNew -= 2));
     }
   }
 
   function constitutionChange(op) {
     let conNew = con;
-    if (op === "+" && con < 15) {
+    let counterNew = counter;
+    if (op === "+" && con < 13 && counter < 27) {
       SetCon((conNew += 1));
-    } else if (op === "-" && con > 8) {
+      setCounter((counterNew += 1));
+    } else if (op === "+" && con < 15 && counter < 26) {
+      SetCon((conNew += 1));
+      setCounter((counterNew += 2));
+    } else if (op === "-" && con > 8 && con < 14) {
       SetCon((conNew -= 1));
+      setCounter((counterNew -= 1));
+    } else if (op === "-" && con > 8 && con >= 14) {
+      SetCon((conNew -= 1));
+      setCounter((counterNew -= 2));
     }
   }
 
   function intelligenceChange(op) {
     let intNew = int;
-    if (op === "+" && int < 15) {
+    let counterNew = counter;
+    if (op === "+" && int < 13 && counter < 27) {
       SetInt((intNew += 1));
-    } else if (op === "-" && int > 8) {
+      setCounter((counterNew += 1));
+    } else if (op === "+" && int < 15 && counter < 26) {
+      SetInt((intNew += 1));
+      setCounter((counterNew += 2));
+    } else if (op === "-" && int > 8 && int < 14) {
       SetInt((intNew -= 1));
+      setCounter((counterNew -= 1));
+    } else if (op === "-" && int > 8 && int >= 14) {
+      SetInt((intNew -= 1));
+      setCounter((counterNew -= 2));
     }
   }
 
   function wisdomChange(op) {
     let wisNew = wis;
-    if (op === "+" && wis < 15) {
+    let counterNew = counter;
+    if (op === "+" && wis < 13 && counter < 27) {
       SetWis((wisNew += 1));
-    } else if (op === "-" && wis > 8) {
+      setCounter((counterNew += 1));
+    } else if (op === "+" && wis < 15 && counter < 26) {
+      SetWis((wisNew += 1));
+      setCounter((counterNew += 2));
+    } else if (op === "-" && wis > 8 && wis < 14) {
       SetWis((wisNew -= 1));
+      setCounter((counterNew -= 1));
+    } else if (op === "-" && wis > 8 && wis >= 14) {
+      SetWis((wisNew -= 1));
+      setCounter((counterNew -= 2));
     }
   }
 
   function charismaChange(op) {
     let chaNew = cha;
-    if (op === "+" && cha < 15) {
+    let counterNew = counter;
+    if (op === "+" && cha < 13 && counter < 27) {
       SetCha((chaNew += 1));
-    } else if (op === "-" && cha > 8) {
+      setCounter((counterNew += 1));
+    } else if (op === "+" && cha < 15 && counter < 26) {
+      SetCha((chaNew += 1));
+      setCounter((counterNew += 2));
+    } else if (op === "-" && cha > 8 && cha < 14) {
       SetCha((chaNew -= 1));
+      setCounter((counterNew -= 1));
+    } else if (op === "-" && cha > 8 && cha >= 14) {
+      SetCha((chaNew -= 1));
+      setCounter((counterNew -= 2));
     }
   }
 
@@ -670,6 +726,8 @@ function Stats(props) {
             </div>
           </div>
         </div>
+
+        <div className="stat-counter">Total points: {counter}/27</div>
 
         <div className="button-box">
           <button
