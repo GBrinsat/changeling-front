@@ -135,7 +135,7 @@ function BackgroundAlignment(props) {
           <button
             className="back-button"
             type="button"
-            onClick={props.changeComponentsBack4}
+            onClick={props.changeComponentsBack5}
           >
             Back
           </button>

@@ -12,6 +12,8 @@ function Stats(props) {
   const [showWis, setShowWis] = useState(false);
   const [showCha, setShowCha] = useState(false);
 
+  /* ---------Ability Scores------- */
+
   const [str, SetStr] = useState(10);
   const [strmod, SetStrmod] = useState(0);
   const [dex, SetDex] = useState(10);
@@ -24,6 +26,36 @@ function Stats(props) {
   const [wismod, SetWismod] = useState(0);
   const [cha, SetCha] = useState(10);
   const [chamod, SetChamod] = useState(0);
+
+  /* ---------Saving Throws------- */
+
+  const [strength, setStrength] = useState(0);
+  const [dexterity, setDexterity] = useState(0);
+  const [constitution, setConstitution] = useState(0);
+  const [intelligence, setIntelligence] = useState(0);
+  const [wisdom, setWisdom] = useState(0);
+  const [charisma, setCharisma] = useState(0);
+
+  /* ---------Proficiencies------- */
+
+  const [acrobatics, setAcrobatics] = useState(0);
+  const [animalHandling, setAnimalHandling] = useState(0);
+  const [arcana, setArcana] = useState(0);
+  const [athletics, setAthletics] = useState(0);
+  const [deception, setDeception] = useState(0);
+  const [history, setHistory] = useState(0);
+  const [insight, setInsight] = useState(0);
+  const [intimidation, setIntimidation] = useState(0);
+  const [investigation, setInvestigation] = useState(0);
+  const [medicine, setMedicine] = useState(0);
+  const [nature, setNature] = useState(0);
+  const [perception, setPerception] = useState(0);
+  const [performance, setPerformance] = useState(0);
+  const [persuasion, setPersuasion] = useState(0);
+  const [religion, setReligion] = useState(0);
+  const [sleightOfHand, setSleightOfHand] = useState(0);
+  const [stealth, setStealth] = useState(0);
+  const [survival, setSurvival] = useState(0);
 
   const [counter, setCounter] = useState(27);
 
@@ -358,7 +390,7 @@ function Stats(props) {
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then(() => {
-        props.changeComponents3();
+        props.changeComponents4();
       });
   }
 
@@ -733,7 +765,7 @@ function Stats(props) {
           <button
             className="back-button"
             type="button"
-            onClick={props.changeComponentsBack3}
+            onClick={props.changeComponentsBack4}
           >
             Back
           </button>

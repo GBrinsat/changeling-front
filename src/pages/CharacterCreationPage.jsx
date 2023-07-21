@@ -5,6 +5,7 @@ import Class from "../components/CharacterCreation/Class";
 import Stats from "../components/CharacterCreation/Stats";
 import BackgroundAlignment from "../components/CharacterCreation/BackgroundAlignment";
 import ClassQuiz from "../components/CharacterCreation/ClassQuiz";
+import Proficiencies from "../components/CharacterCreation/Proficiencies";
 
 //context
 import { useContext } from "react";
@@ -27,10 +28,11 @@ function CharacterCreationPage() {
   const [switch2, setSwitch2] = useState(false);
   const [switch3, setSwitch3] = useState(false);
   const [switch4, setSwitch4] = useState(false);
+  const [switch5, setSwitch5] = useState(false);
   const [switchQuiz, setSwitchQuiz] = useState(false);
 
   //class switch
-  const [playerclass, setPlayerclass] = useState("Barbarian");
+  const [playerclass, setPlayerclass] = useState("");
 
   function changeComponents1() {
     setSwitchQuiz(false);
@@ -45,6 +47,10 @@ function CharacterCreationPage() {
   function changeComponents3() {
     setSwitch3(false);
     setSwitch4(true);
+  }
+  function changeComponents4() {
+    setSwitch4(false);
+    setSwitch5(true);
   }
 
   function changeComponentsBack1() {
@@ -64,6 +70,11 @@ function CharacterCreationPage() {
   function changeComponentsBack4() {
     setSwitch3(true);
     setSwitch4(false);
+  }
+
+  function changeComponentsBack5() {
+    setSwitch4(true);
+    setSwitch5(false);
   }
 
   function switchBarbarian() {
@@ -169,7 +180,7 @@ function CharacterCreationPage() {
       return;
     } else if (character.alignment !== "") {
       setSwitch1(false);
-      setSwitch4(true);
+      setSwitch5(true);
     }
   }, [character]);
 
@@ -215,18 +226,31 @@ function CharacterCreationPage() {
         )
       ) : switch3 ? (
         character && (
-          <Stats
+          <Proficiencies
             id={character._id}
-            playerclass={playerclass}
+            class={playerclass}
             changeComponents3={changeComponents3}
             changeComponentsBack3={changeComponentsBack3}
           />
         )
-      ) : (
+      ) : switch4 ? (
+        character && (
+          <Stats
+            id={character._id}
+            class={playerclass}
+            changeComponents4={changeComponents4}
+            changeComponentsBack4={changeComponentsBack4}
+          />
+        )
+      ) : switch5 ? (
         <BackgroundAlignment
           id={character._id}
-          changeComponentsBack4={changeComponentsBack4}
+          changeComponentsBack5={changeComponentsBack5}
         />
+      ) : (
+        <>
+          <p>Error</p>
+        </>
       )}
     </div>
   );
